@@ -4,7 +4,8 @@ import { supabase } from '../../lib/supabase';
 import Link from 'next/link';
 
 export default function ProductsPage() {
-  const [products, setProducts] = useState([]);
+  // Yahan <any[]> laga diya hai taake TypeScript khamosh ho jaye
+  const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -28,7 +29,7 @@ export default function ProductsPage() {
           <p className="text-center text-gray-500 italic">Curating collection...</p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
-            {products.map((p) => (
+            {products.map((p: any) => ( // Yahan bhi :any add kar diya hai
               <Link href={`/product/${p.id}`} key={p.id} className="group cursor-pointer block">
                 <div className="aspect-[4/5] bg-white rounded-2xl overflow-hidden mb-4 shadow-sm border border-gray-100 relative">
                   {p.is_sale && <span className="absolute top-3 left-3 bg-black text-white text-[9px] uppercase tracking-widest px-3 py-1 rounded-full z-10">Sale</span>}

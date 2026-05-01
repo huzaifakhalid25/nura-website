@@ -33,8 +33,9 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
               <div>
                 <p className="text-xs text-gray-800 font-bold uppercase tracking-widest mb-3">Information</p>
                 <div className="space-y-4">
-                  <Link href="/about" className="block text-lg font-medium text-gray-900 hover:text-[#8a6340]">About Us</Link>
-                  <Link href="/contact" className="block text-lg font-medium text-gray-900 hover:text-[#8a6340]">Contact Us</Link>
+                  {/* YAHAN DONO LINKS MEIN onClick ADD KAR DIYA HAI */}
+                  <Link href="/about" onClick={() => setIsSidebarOpen(false)} className="block text-lg font-medium text-gray-900 hover:text-[#8a6340]">About Us</Link>
+                  <Link href="/contact" onClick={() => setIsSidebarOpen(false)} className="block text-lg font-medium text-gray-900 hover:text-[#8a6340]">Contact Us</Link>
                 </div>
               </div>
             </nav>
